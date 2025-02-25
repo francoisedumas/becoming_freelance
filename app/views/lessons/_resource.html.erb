@@ -1,0 +1,10 @@
+<div class="mb-4">
+  <% if resource.link? %>
+    <p class="text-gray-700"><%= link_to resource.description, resource.url, target: "_blank" %></p>
+  <% elsif resource.image? %>
+    <% if resource.image.attached? %>
+      <%= image_tag resource.image, class: "w-full h-auto" %>
+    <% end %>
+    <p class="text-gray-700"><%= resource.description %></p>
+  <% end %>
+</div>

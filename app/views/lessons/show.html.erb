@@ -1,0 +1,25 @@
+<article>
+  <div class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <header class="mx-auto max-w-2xl lg:mx-0">
+        <span class="text-sm text-red-600 font-semibold">Leçon n°<%= @lesson.id %>:</span>
+        <h1 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"><%= @lesson.title %></h1>
+        <p class="mt-6 text-lg/8 text-gray-600"><%= @lesson.description %></p>
+      </header>
+      <div class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
+        <div class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+          <%= render partial: 'learning_block', collection: @learning_blocks, as: :learning_block %>
+        </div>
+      </div>
+      <div class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
+        <h2 class="text-2xl font-semibold mb-4">Exercices</h2>
+        <%= render partial: 'exercise', collection: @exercises, as: :exercise %>
+      </div>
+      <div class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
+        <h2 class="text-2xl font-semibold mb-4">Ressources</h2>
+        <%= render partial: 'resource', collection: @resources, as: :resource %>
+      </div>
+    </div>
+  </div>
+</article>
+
