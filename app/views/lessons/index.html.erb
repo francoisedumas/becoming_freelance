@@ -1,3 +1,5 @@
 <h1>Sommaire</h1>
 <br>
-<%= link_to "lesson 1", lesson_path(Lesson.first)%>
+<% @lessons.each_with_index do |lesson, index| %>
+  <%= link_to "lesson #{index + 1}", lesson_path(lesson)%>
+<% end %>

@@ -1,11 +1,21 @@
 class LessonsController < ApplicationController
+  def index
+    @lessons = Lesson.all
+  end
 
-  def index;  end
-  
   def show
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.includes(:learning_blocks, :exercises, :resources).find(params[:id])
     @learning_blocks = @lesson.learning_blocks
-    @exercises = @lesson.exercises
     @resources = @lesson.resources
+    @exercises = @lesson.exercises
+    @user_exercises = user_exercises
+  end
+
+  private
+
+  def user_exercises
+    @exercises.map do |exercise|
+      UserExercise.find_or_create_by(user: current_user, exercise: exercise)
+    end
   end
 end

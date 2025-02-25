@@ -1,6 +1,22 @@
 # db/seeds.rb
 
+Resource.destroy_all
+LearningBlock.destroy_all
+UserExercise.destroy_all
+Exercise.destroy_all
+User.destroy_all
+
+p "Creating admin user"
+
+user = User.new(
+    email: "jean@bon.fr",
+    password: "qwerty",
+    password_confirmation: "qwerty",
+)
+user.save
+
 # Create the lesson
+p "Creating a lesson"
 lesson = Lesson.create(
   title: "Identifier des Canaux de Prospection",
   description: "Stratégies pour trouver des clients potentiels"
@@ -30,17 +46,14 @@ Exercise.create([
   {
     lesson: lesson,
     description: "Lister 10 entreprises cibles",
-    completed: false
   },
   {
     lesson: lesson,
     description: "Lister 5 contacts dans votre entourage",
-    completed: false
   },
   {
     lesson: lesson,
     description: "Rejoindre 3 communautés en ligne",
-    completed: false
   }
 ])
 
