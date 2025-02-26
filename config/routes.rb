@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :lessons, only: [:show, :index]
     resources :user_exercises, only: [:update]
   end
+
+  get 'demo', to: 'pages#demo'
   get "up" => "rails/health#show", as: :rails_health_check
 end
