@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     unauthenticated { root to: "pages#home", as: :unauthenticated_root }
 
     root to: "lessons#index"
-    resources :lessons, only: [:show, :index]
+    resources :lessons, only: [:show, :index, :new, :create]
     resources :user_exercises, only: [:update]
   end
 

@@ -1,0 +1,32 @@
+<%= form_with(model: lesson, class: "space-y-6") do |form| %>
+  <div class="space-y-4">
+    <div>
+      <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :title, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    </div>
+
+    <div>
+      <%= form.label :description, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_area :description, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    </div>
+  </div>
+
+  <div class="space-y-4" data-controller='nested-form', data-nested_form_wrapper_selector_value='.nested-form-wrapper'>
+    <h3 class="text-lg font-medium text-gray-900">Learning Blocks</h3>
+    <%= render 'learning_block_fields', form: form %>
+  </div>
+
+  <div class="space-y-4" data-controller='nested-form', data-nested_form_wrapper_selector_value='.nested-form-wrapper'>
+    <h3 class="text-lg font-medium text-gray-900">Exercises</h3>
+    <%= render 'exercise_fields', form: form %>
+  </div>
+
+  <div class="space-y-4" data-controller='nested-form', data-nested_form_wrapper_selector_value='.nested-form-wrapper'>
+    <h3 class="text-lg font-medium text-gray-900">Resources</h3>
+    <%= render 'resource_fields', form: form %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Lesson", class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+<% end %>
