@@ -1,5 +1,11 @@
-<h1>Sommaire</h1>
-<br>
-<% @lessons.each do |lesson| %>
-  <%= link_to "lesson #{lesson.position}", lesson_path(lesson)%>
-<% end %>
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-6">Sommaire</h1>
+  <div class="space-y-4">
+    <% @lessons.each do |lesson| %>
+      <%= link_to lesson_path(lesson), class: "block text-xl font-semibold text-gray-800 hover:text-red-600 transition" do %>
+        Leçon <%= lesson.position %>: <%= lesson.title %>
+      <% end %>
+      <p class="text-gray-700 flex items-center italic"><%= lesson.description %></p>
+    <% end %>
+  </div>
+</div>

@@ -3,9 +3,6 @@ module Maintenance
     before_action :set_lesson, only: [:update]
 
     def update
-
-      p "*"*100
-      p "*"*100
       @lesson.insert_at(params[:position].to_i)
       head :ok
     end

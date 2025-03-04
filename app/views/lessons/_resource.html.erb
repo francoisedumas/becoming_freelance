@@ -1,9 +1,9 @@
 <div class="mb-4">
   <% if resource.link? %>
-    <p class="text-gray-700"><%= link_to resource.description, resource.url, target: "_blank" %></p>
+    <%= link_to resource.description, resource.url, target: "_blank", class: "text-gray-700 hover:text-red-600 underline hover:no-underline transition-colors duration-300 cursor-pointer" %>
   <% elsif resource.image? %>
     <% if resource.image.attached? %>
-      <%= image_tag resource.image, class: "w-full h-auto" %>
+      <%= image_tag resource.image, class: "w-full h-auto rounded-lg shadow-md" %>
     <% end %>
     <p class="text-gray-700"><%= resource.description %></p>
   <% end %>
