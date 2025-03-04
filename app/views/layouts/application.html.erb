@@ -11,16 +11,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="w-full flex flex-col min-h-screen">
+    <header>
+      <%= render 'shared/navbar' %>
+    </header>
+
+
     <main class="container mx-auto mt-28 px-5 flex flex-col">
-      <% if current_user %>
-        <%= button_to destroy_user_session_path, method: :delete do %>
-          sign out
-        <% end %>
-      <% else %>
-        <%= link_to "sign in", new_user_session_path%>
-        <%= link_to "sign up", new_user_registration_path%>
-      <% end %>
       <%= yield %>
     </main>
   </body>
