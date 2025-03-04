@@ -15,10 +15,9 @@
     <header>
       <%= render 'shared/navbar' %>
     </header>
-
-
-    <main class="container mx-auto mt-28 px-5 flex flex-col">
+    <main class="flex-grow container mx-auto mt-28 px-5 flex flex-col">
       <%= yield %>
     </main>
+    <%= render 'shared/footer' %>
   </body>
 </html>
