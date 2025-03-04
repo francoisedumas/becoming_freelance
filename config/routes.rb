@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     root to: "lessons#index"
     resources :lessons, only: [:show, :index]
     namespace :maintenance do
-      resources :lessons, only: [:new, :create, :edit, :update]
+      resources :lessons, only: [:index, :new, :create, :edit, :update] do
+        resource :position, only: :update
+      end
     end
     resources :user_exercises, only: [:update]
   end

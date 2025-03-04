@@ -3,7 +3,7 @@ module Maintenance
     before_action :authenticate_admin!
 
     def index
-      @lessons = Lesson.all
+      @lessons = Lesson.all.order(position: :asc)
     end
 
     def new
