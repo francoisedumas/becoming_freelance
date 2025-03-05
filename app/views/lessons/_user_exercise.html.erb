@@ -2,7 +2,7 @@
   <%= form_with model: user_exercise, url: user_exercise_path(user_exercise), method: :patch do |form| %>
     <div class="flex items-center mb-4">
       <%= form.check_box :completed, class: "mr-2", onchange: "this.form.requestSubmit()" %>
-      <p class="text-gray-700"><%= user_exercise.description %></p>
+      <p class="text-gray-700"><%= user_exercise.content %></p>
     </div>
   <% end %>
 </div>

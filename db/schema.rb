@@ -79,7 +79,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_203801) do
     t.bigint "lesson_id", null: false
     t.integer "resource_type"
     t.string "url"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lesson_id"], name: "index_resources_on_lesson_id"

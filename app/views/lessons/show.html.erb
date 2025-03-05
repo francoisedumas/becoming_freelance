@@ -4,6 +4,9 @@
       <header class="mx-auto max-w-2xl lg:mx-0">
         <span class="text-sm text-red-600 font-semibold">Leçon n°<%= @lesson.position %>:</span>
         <h1 class="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"><%= @lesson.title %></h1>
+        <% if current_user.admin? %>
+          <%= link_to "Modifier cette leçon", edit_maintenance_lesson_path(@lesson), class: "rounded-lg my-2 py-2 px-4 bg-gray-100 inline-block font-medium hover:bg-gray-200" %>
+        <% end %>
         <p class="mt-6 text-lg text-gray-600"><%= @lesson.description %></p>
       </header>
       <div class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">

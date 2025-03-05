@@ -1,27 +1,25 @@
 <div id="<%= dom_id lesson %>" data-id="<%= lesson.id %>" class="bg-white px-4 py-5 sm:px-6">
-  <div class="flex space-x-3 mb-4">
-    <div class="min-w-0 flex-1">
+  <div class="flex justify-between items-center mb-4">
+    <div class="flex-1">
       <span class="text-sm text-red-600 font-semibold">Leçon n°<%= lesson.position %>:</span>
-      <p class="text-sm text-gray-500">
-        <%= lesson.title %>
-      </p>
+      <h2 class="text-xl font-semibold text-gray-900"><%= lesson.title %></h2>
     </div>
-    <div class="flex flex-shrink-0 self-center">
+    <div class="flex items-center space-x-3">
       <div class="relative inline-block text-left">
-        <div>
-          <div class="-m-2 flex lessons-center rounded-full p-2 text-gray-400 hover:text-gray-600 handle cursor-pointer">
-            <span class="sr-only">Open options</span>
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grip-vertical" class="h-5 w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-              <path fill="currentColor" d="M96 32H32C14.33 32 0 46.33 0 64v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zm0 160H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm0 160H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zM288 32h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zm0 160h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm0 160h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32z"></path>
-            </svg>
-          </div>
+        <div class="flex items-center justify-center rounded-full p-2 text-gray-400 hover:text-gray-600 cursor-pointer">
+          <span class="sr-only">Open options</span>
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grip-vertical" class="h-5 w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path fill="currentColor" d="M96 32H32C14.33 32 0 46.33 0 64v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zm0 160H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm0 160H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zM288 32h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zm0 160h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm0 160h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32z"></path>
+          </svg>
         </div>
       </div>
     </div>
   </div>
   <% if action_name != "show" %>
-    <%= link_to "Show this lesson", lesson_path(lesson), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this lesson", edit_maintenance_lesson_path(lesson), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="flex space-x-2 mb-4">
+      <%= link_to "Show this lesson", lesson_path(lesson), class: "rounded-lg py-2 px-4 bg-gray-100 inline-block font-medium hover:bg-gray-200" %>
+      <%= link_to "Edit this lesson", edit_maintenance_lesson_path(lesson), class: "rounded-lg py-2 px-4 bg-gray-100 inline-block font-medium hover:bg-gray-200" %>
+    </div>
     <hr class="mt-6">
   <% end %>
 </div>

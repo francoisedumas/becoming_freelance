@@ -2,4 +2,6 @@ class Exercise < ApplicationRecord
   belongs_to :lesson
   has_many :user_exercises, dependent: :destroy
   has_many :users, through: :user_exercises
+
+  has_rich_text :content
 end
