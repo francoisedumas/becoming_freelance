@@ -2,26 +2,48 @@
   <div class="bg-white">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <header class="mx-auto max-w-2xl lg:mx-0">
-        <span class="text-sm text-red-600 font-semibold">Leçon n°<%= @lesson.position %>:</span>
+        <%= link_to lessons_path do %>
+          <span class="text-sm text-red-600 font-semibold">Le curriculum > Leçon n°<%= @lesson.position %>:</span>
+        <% end %>
         <h1 class="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"><%= @lesson.title %></h1>
         <% if current_user.admin? %>
           <%= link_to "Modifier cette leçon", edit_maintenance_lesson_path(@lesson), class: "rounded-lg my-2 py-2 px-4 bg-gray-100 inline-block font-medium hover:bg-gray-200" %>
         <% end %>
         <p class="mt-6 text-lg text-gray-600"><%= @lesson.description %></p>
       </header>
-      <div class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
-        <div class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-          <%= render partial: 'learning_block', collection: @learning_blocks, as: :learning_block %>
-        </div>
-      </div>
-      <div class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
-        <h2 class="text-2xl font-semibold mb-4">Exercices</h2>
-        <%= render partial: 'user_exercise', collection: @user_exercises, as: :user_exercise %>
-      </div>
-      <div class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
-        <h2 class="text-2xl font-semibold mb-4">Ressources et Curation de Contenu</h2>
-        <%= render partial: 'resource', collection: @resources, as: :resource %>
-      </div>
+      <% if @lesson.ready? %>
+        <section class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
+          <div class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+            <%= render partial: 'learning_block', collection: @learning_blocks, as: :learning_block %>
+          </div>
+        </section>
+        <section class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
+          <h2 class="text-2xl font-semibold mb-4">Exercices</h2>
+          <%= render partial: 'user_exercise', collection: @user_exercises, as: :user_exercise %>
+        </section>
+        <section class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
+          <h2 class="text-2xl font-semibold mb-4">Ressources et Curation de Contenu</h2>
+          <%= render partial: 'resource', collection: @resources, as: :resource %>
+        </section>
+      <% else %>
+        <section class="py-24 relative">
+          <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+            <div class="w-full md:px-16 px-10 md:pt-16 pt-10 pb-10 bg-gray-900 rounded-2xl flex-col justify-end items-center lg:gap-28 md:gap-16 gap-10 inline-flex">
+              <div class="flex-col justify-end items-center lg:gap-16 gap-10 flex">
+
+                <div class="flex-col justify-center items-center gap-10 flex">
+                  <div class="flex-col justify-start items-center gap-2.5 flex">
+                    <h2 class="text-center text-red-600 md:text-6xl text-5xl font-bold font-manrope leading-normal">Coming Soon</h2>
+                    <p class="text-center text-gray-500 text-base font-normal leading-relaxed">Just xx days remaining (maybe a lot!) until the big reveal of all the lessons!</p>
+                  </div>
+                </div>
+
+                <p class="text-center text-gray-500 text-sm font-normal leading-snug">Get in touch with me: <a href="" class="hover:text-gray-100 transition-all duration-700 ease-in-out"> francois.devtech@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      <% end %>
     </div>
   </div>
 </article>

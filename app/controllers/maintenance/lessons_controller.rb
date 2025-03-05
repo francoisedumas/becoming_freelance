@@ -42,7 +42,7 @@ module Maintenance
 
     def lesson_params
       params.require(:lesson).permit(
-        :title, :description,
+        :title, :description, :ready,
         learning_blocks_attributes: [:id, :title, :content, :_destroy],
         exercises_attributes: [:id, :content, :_destroy],
         resources_attributes: [:id, :resource_type, :url, :content, :image, :_destroy]

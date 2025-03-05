@@ -8,6 +8,11 @@
     <%= form.label :description, class: "block text-sm font-medium text-gray-700" %>
     <%= form.text_area :description, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
   </div>
+
+  <div class="flex items-center">
+    <%= form.check_box :ready, class: "h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" %>
+    <%= form.label :ready, "Ready", class: "ml-2 block text-sm text-gray-900" %>
+  </div>
 </div>
 
 <div class="space-y-4" data-controller='nested-form', data-nested_form_wrapper_selector_value='.nested-form-wrapper'>
