@@ -14,7 +14,9 @@
       <% if @lesson.ready? %>
         <section class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
           <div class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            <%= render partial: 'learning_block', collection: @learning_blocks, as: :learning_block %>
+            <% @learning_blocks.each_with_index do |learning_block, index| %>
+              <%= render partial: 'learning_block', locals: { learning_block: learning_block, index: index } %>
+            <% end %>
           </div>
         </section>
         <section class="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
