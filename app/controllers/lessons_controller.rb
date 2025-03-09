@@ -9,6 +9,8 @@ class LessonsController < ApplicationController
     @resources = @lesson.resources
     @exercises = @lesson.exercises
     @user_exercises = user_exercises
+    @previous_lesson = @lesson.previous_lesson
+    @next_lesson = @lesson.next_lesson
   end
 
   private
