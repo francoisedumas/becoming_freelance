@@ -1,4 +1,6 @@
-<%= link_to "Retour vers la leçon", lesson_path(@lesson), class: "rounded-lg my-2 py-2 px-4 bg-gray-100 font-medium hover:bg-gray-200" %>
+<div class="my-4">
+  <%= link_to "Retour vers la leçon", lesson_path(@lesson), class: "btn btn-secondary" %>
+</div>
 
 <%= form_with(model: @lesson, url: maintenance_lesson_path(@lesson), method: :patch, class: "space-y-6") do |form| %>
   <%= render "form", form: form %>
