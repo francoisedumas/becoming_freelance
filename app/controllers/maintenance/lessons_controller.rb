@@ -1,7 +1,5 @@
 module Maintenance
-  class LessonsController < ApplicationController
-    before_action :authenticate_admin!
-
+  class LessonsController < BaseController
     def index
       @lessons = Lesson.all.order(position: :asc)
     end
@@ -47,10 +45,6 @@ module Maintenance
         exercises_attributes: [:id, :content, :_destroy],
         resources_attributes: [:id, :resource_type, :url, :content, :image, :_destroy]
       )
-    end
-
-    def authenticate_admin!
-      redirect_to root_path, alert: 'You are not authorized to access this page.' unless current_user&.admin?
     end
   end
 end

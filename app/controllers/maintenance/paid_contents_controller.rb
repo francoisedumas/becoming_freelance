@@ -1,5 +1,5 @@
 module Maintenance
-  class PaidContentsController < ApplicationController
+  class PaidContentsController < BaseController
     before_action :set_lesson, only: [:update]
 
     def update

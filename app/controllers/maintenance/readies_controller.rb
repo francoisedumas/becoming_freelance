@@ -1,5 +1,5 @@
 module Maintenance
-  class ReadiesController < ApplicationController
+  class ReadiesController < BaseController
     before_action :set_lesson, only: [:update]
 
     def update

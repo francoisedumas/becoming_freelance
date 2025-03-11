@@ -1,5 +1,5 @@
 module Maintenance
-  class PositionsController < ApplicationController
+  class PositionsController < BaseController
     before_action :set_lesson, only: [:update]
 
     def update
