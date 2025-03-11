@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_10_214928) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_10_224629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,27 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_10_214928) do
     t.index ["lesson_id"], name: "index_resources_on_lesson_id"
   end
 
+  create_table "subscription_plans", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price", default: 0
+    t.integer "duration", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "subscription_plan_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subscription_plan_id"], name: "index_subscriptions_on_subscription_plan_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "user_exercises", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "exercise_id", null: false
@@ -114,6 +135,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_10_214928) do
   add_foreign_key "exercises", "lessons"
   add_foreign_key "learning_blocks", "lessons"
   add_foreign_key "resources", "lessons"
+  add_foreign_key "subscriptions", "subscription_plans"
+  add_foreign_key "subscriptions", "users"
   add_foreign_key "user_exercises", "exercises"
   add_foreign_key "user_exercises", "users"
 end

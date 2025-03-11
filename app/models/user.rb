@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :user_exercises, dependent: :destroy
   has_many :exercises, through: :user_exercises
+
+  has_one :subscription, dependent: :destroy
+  has_one :subscription_plan, through: :subscription
 end
