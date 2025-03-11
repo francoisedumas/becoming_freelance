@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     namespace :maintenance do
       resources :lessons, only: [:index, :new, :create, :edit, :update] do
         resource :position, only: :update
+        resource :paid_content, only: :update
+        resource :ready, only: :update
       end
     end
     resources :user_exercises, only: [:update]

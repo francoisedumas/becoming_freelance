@@ -15,6 +15,20 @@
       </div>
     </div>
   </div>
+  <div class="flex gap-4">
+    <%= form_with model: lesson, url: maintenance_lesson_paid_content_path(lesson), method: :patch do |form| %>
+      <div class="flex items-center mb-4">
+        <%= form.check_box :paid_content, class: "mr-2", onchange: "this.form.requestSubmit()" %>
+        <p class="text-gray-700">Leçon payante</p>
+      </div>
+    <% end %>
+    <%= form_with model: lesson, url: maintenance_lesson_ready_path(lesson), method: :patch do |form| %>
+      <div class="flex items-center mb-4">
+        <%= form.check_box :ready, class: "mr-2", onchange: "this.form.requestSubmit()" %>
+        <p class="text-gray-700">Leçon prête</p>
+      </div>
+    <% end %>
+  </div>
   <% if action_name != "show" %>
     <div class="flex space-x-2 mb-4">
       <%= link_to "Voir la leçon", lesson_path(lesson), class: "btn btn-secondary" %>
