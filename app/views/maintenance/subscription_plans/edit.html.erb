@@ -1,0 +1,19 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to subscription plans"), maintenance_subscription_plans_path %>
+
+  <div class="header">
+    <h1>Edit subscription_plan</h1>
+  </div>
+
+  <%= turbo_frame_tag @subscription_plan do %>
+    <%= form_with model: @subscription_plan, url: maintenance_subscription_plan_path(@subscription_plan), class: "space-y-6 my-4" do |form| %>
+      <%= form_error_notification(@subscription_plan) %>
+      <%= render "form", form: form %>
+
+      <div class="flex gap-4">
+        <%= link_to "Cancel", maintenance_subscription_plans_path, class: "btn btn-secondary" %>
+        <%= form.submit "Update subscription plan", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+</main>

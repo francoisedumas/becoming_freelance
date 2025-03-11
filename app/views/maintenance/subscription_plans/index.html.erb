@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="header">
+    <h1>Subscription plans</h1>
+    <%= link_to "New subscription plan",
+                new_maintenance_subscription_plan_path,
+                class: "btn btn-primary",
+                data: { turbo_frame: dom_id(SubscriptionPlan.new) } %>
+  </div>
+
+  <%= turbo_frame_tag SubscriptionPlan.new %>
+
+  <%= turbo_frame_tag "subscription_plans" do %>
+    <%= render @subscription_plans %>
+  <% end %>
+</div>

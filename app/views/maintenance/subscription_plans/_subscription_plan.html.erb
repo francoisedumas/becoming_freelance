@@ -1,0 +1,19 @@
+<%= turbo_frame_tag subscription_plan do %>
+  <div class="flex flex-col gap-4">
+    <div class="bold">
+      <%= subscription_plan.name %>
+    </div>
+    <div class="italic">
+      <%= subscription_plan.description %>
+    </div>
+    <div class="flex gap-4">
+      <%= button_to "Delete",
+                    maintenance_subscription_plan_path(subscription_plan),
+                    method: :delete,
+                    class: "btn btn-secondary" %>
+      <%= link_to "Edit",
+                  edit_maintenance_subscription_plan_path(subscription_plan),
+                  class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

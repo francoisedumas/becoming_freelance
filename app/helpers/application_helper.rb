@@ -8,4 +8,12 @@ module ApplicationHelper
   def svg_by_index(index)
     SVGS[index]
   end
+  
+  def form_error_notification(object)
+    if object.errors.any?
+      tag.div class: "error-message" do
+        object.errors.full_messages.to_sentence.capitalize
+      end
+    end
+  end
 end
