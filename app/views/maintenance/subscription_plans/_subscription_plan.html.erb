@@ -6,6 +6,9 @@
     <div class="italic">
       <%= subscription_plan.description %>
     </div>
+    <div class="italic">
+      Prix: <%= number_to_currency(subscription_plan.price, unit: "€") %>
+    </div>
     <div class="flex gap-4">
       <%= button_to "Delete",
                     maintenance_subscription_plan_path(subscription_plan),

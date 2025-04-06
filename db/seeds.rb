@@ -7,12 +7,13 @@ Exercise.destroy_all
 Lesson.destroy_all
 User.destroy_all
 
-p "Creating admin user"
+p "Creating user"
 
 user = User.new(
     email: "jean@bon.fr",
     password: "qwerty",
     password_confirmation: "qwerty",
+    confirmed_at: DateTime.now
 )
 user.save
 

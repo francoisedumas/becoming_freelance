@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   get 'demo', to: 'pages#demo'
   get "up" => "rails/health#show", as: :rails_health_check
+  direct :recommendation do
+    'https://www.linkedin.com/in/francois-dumas-lattaque/details/recommendations/?detailScreenTabIndex=0'
+  end
 end
