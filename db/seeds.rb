@@ -72,15 +72,15 @@ LearningBlock.create([
 Exercise.create([
   {
     lesson: lesson,
-    description: "Lister 10 entreprises cibles",
+    content: "Lister 10 entreprises cibles",
   },
   {
     lesson: lesson,
-    description: "Lister 5 contacts dans votre entourage",
+    content: "Lister 5 contacts dans votre entourage",
   },
   {
     lesson: lesson,
-    description: "Rejoindre 3 communautés en ligne",
+    content: "Rejoindre 3 communautés en ligne",
   }
 ])
 
@@ -90,13 +90,13 @@ Resource.create([
     lesson: lesson,
     resource_type: "link",
     url: "http://www.jobgether.com/",
-    description: "Site pour trouver des opportunités de freelancing"
+    content: "Site pour trouver des opportunités de freelancing"
   },
   {
     lesson: lesson,
     resource_type: "link",
     url: "https://www.welcometothejungle.com/fr",
-    description: "Plateforme pour découvrir des entreprises et des offres d'emploi"
+    content: "Plateforme pour découvrir des entreprises et des offres d'emploi"
   }
 ])
 
