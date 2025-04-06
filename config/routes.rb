@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   direct :recommendation do
     'https://www.linkedin.com/in/francois-dumas-lattaque/details/recommendations/?detailScreenTabIndex=0'
   end
+  direct :github_repo do
+    'https://github.com/francoisedumas/becoming_freelance'
+  end
 end
