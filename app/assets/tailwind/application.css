@@ -13,3 +13,16 @@
     @apply bg-white text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50;
   }
 }
+
+@theme {
+  --animate-fade-out: fade-out 10s linear 1;
+
+  @keyframes fade-out {
+    0%, 70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
