@@ -1,7 +1,7 @@
 module Maintenance
   class BaseController < ApplicationController
     before_action :authenticate_admin!
-    http_basic_authenticate_with name: Rails.application.credentials.admin_secret_name, password: Rails.application.credentials.admin_secret_password
+    # http_basic_authenticate_with name: Rails.application.credentials.admin_secret_name, password: Rails.application.credentials.admin_secret_password
 
     private
 
