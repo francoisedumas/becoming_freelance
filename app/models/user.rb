@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :user_exercises, dependent: :destroy
+  has_many :user_lessons, dependent: :destroy
   has_many :exercises, through: :user_exercises
 
   has_one :subscription, dependent: :destroy
