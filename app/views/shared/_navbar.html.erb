@@ -40,7 +40,7 @@
               <a href="/" class="text-gray-700 hover:text-gray-900 rounded-md px-3 py-2 text-sm font-medium">Le curriculum</a>
               <% if current_user %>
                 <%= link_to "Mon profil", "#", class: "text-gray-700 hover:text-gray-900 rounded-md px-3 py-2 text-sm font-medium" %>
-                <%= link_to "Maintenance", maintenance_dashboard_path, class: "text-gray-700 hover:text-gray-900 rounded-md px-3 py-2 text-sm font-medium" if current_user.admin? %>
+                <%= link_to "Maintenance", maintenance_dashboard_path, class: "text-gray-700 hover:text-gray-900 rounded-md px-3 py-2 text-sm font-medium", data: { turbo_prefetch: false }  if current_user.admin? %>
                 <%= button_to destroy_user_session_path, method: :delete, class: "text-gray-700 hover:text-gray-900 rounded-md px-3 py-2 text-sm font-medium cursor-pointer" do %>
                   Déconnexion
                 <% end %>
@@ -61,7 +61,7 @@
         <a href="/" class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-700 hover:text-white">Le curriculum</a>
         <% if current_user %>
           <%= link_to "Mon profil", "#", class: "block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-700 hover:text-white" %>
-          <%= link_to "Maintenance", maintenance_dashboard_path, class: "block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-700 hover:text-white" if current_user.admin? %>
+          <%= link_to "Maintenance", maintenance_dashboard_path, class: "block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-700 hover:text-white", data: { turbo_prefetch: false }  if current_user.admin? %>
           <%= button_to destroy_user_session_path, method: :delete, class: "block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-700 hover:text-white cursor-pointer" do %>
             Déconnexion
           <% end %>
