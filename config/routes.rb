@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
     root to: "lessons#index"
     resources :lessons, only: [:show, :index]
+    resource :profile, only: [:show]
     namespace :maintenance do
       resources :users, only: [:index]
       resources :subscription_plans
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
       end
     end
     resources :user_exercises, only: [:update]
+    resources :user_lessons, only: [:update]
   end
 
   get 'demo', to: 'pages#demo'

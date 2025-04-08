@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_06_110359) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_08_134506) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -117,6 +117,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_06_110359) do
     t.index ["user_id"], name: "index_user_exercises_on_user_id"
   end
 
+  create_table "user_lessons", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lesson_id", null: false
+    t.boolean "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_user_lessons_on_lesson_id"
+    t.index ["user_id"], name: "index_user_lessons_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -144,4 +154,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_06_110359) do
   add_foreign_key "subscriptions", "users"
   add_foreign_key "user_exercises", "exercises"
   add_foreign_key "user_exercises", "users"
+  add_foreign_key "user_lessons", "lessons"
+  add_foreign_key "user_lessons", "users"
 end

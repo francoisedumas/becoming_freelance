@@ -9,6 +9,7 @@ class LessonsController < ApplicationController
     @resources = @lesson.resources
     @exercises = @lesson.exercises
     @user_exercises = user_exercises
+    @user_lesson = user_lesson
     @previous_lesson = @lesson.previous_lesson
     @next_lesson = @lesson.next_lesson
   end
@@ -19,5 +20,9 @@ class LessonsController < ApplicationController
     @exercises.map do |exercise|
       UserExercise.find_or_create_by(user: current_user, exercise: exercise)
     end
+  end
+
+  def user_lesson
+    UserLesson.find_or_create_by(user: current_user, lesson: @lesson)
   end
 end

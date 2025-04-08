@@ -9,6 +9,7 @@
         <% if current_user.admin? %>
           <%= link_to "Modifier cette leçon", edit_maintenance_lesson_path(@lesson), class: "btn btn-secondary" %>
         <% end %>
+        <%= render partial: 'user_lesson', locals: {user_lesson: @user_lesson} %>
         <p class="mt-6 text-lg text-gray-600"><%= @lesson.description %></p>
       </header>
       <% if @lesson.ready? %>

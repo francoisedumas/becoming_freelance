@@ -1,0 +1,8 @@
+<div class="flex items-center my-2">
+  <%= form_with model: user_lesson, url: user_lesson_path(user_lesson), method: :patch do |form| %>
+    <div class="flex items-center">
+      <%= form.check_box :completed, class: "mr-2", onchange: "this.form.requestSubmit()" %>
+      <p class="text-gray-700">C'est fait! Leçon complétée ✅</p>
+    </div>
+  <% end %>
+</div>
