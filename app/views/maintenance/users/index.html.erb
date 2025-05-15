@@ -15,7 +15,13 @@
             <% @users.each do |user| %>
               <tr>
                 <td class="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-0"><%= user.email %></td>
-                <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= user.admin? %></td>
+                <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
+                  <%= turbo_frame_tag user do %>
+                    <%= button_to maintenance_user_admin_path(user), method: :patch do %>
+                      <span class="font-bold <%= user.admin? ? 'text-green-500' : 'text-red-500' %>"><%= user.admin? %></span>
+                    <% end %>
+                  <% end %>
+                </td>
                 <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= l(user.confirmed_at, format: :short) if user.confirmed_at %></td>
                 <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= user.subscription ? "oui" : "non" %></td>
               </tr>

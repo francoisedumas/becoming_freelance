@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :lessons, only: [:show, :index]
     resource :profile, only: [:show]
     namespace :maintenance do
-      resources :users, only: [:index]
+      resources :users, only: [:index] do
+        resource :admin, only: [:update]
+      end
       resources :subscription_plans
       resource :dashboard, only: [:show], controller: :dashboard
       resources :lessons, only: [:index, :new, :create, :edit, :update] do
