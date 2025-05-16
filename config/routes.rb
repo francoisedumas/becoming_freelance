@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     root to: "lessons#index"
     resources :lessons, only: [:show, :index]
-    resource :profile, only: [:show]
+    resource :profile, only: [:show, :update, :edit]
     namespace :maintenance do
       resources :users, only: [:index] do
         resource :admin, only: [:update]

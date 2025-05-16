@@ -1,0 +1,21 @@
+---
+en:
+  activerecord:
+    attributes:
+      user:
+        admin: Admin
+        created_at: Created at
+        email: Email
+        first_name: First name
+        last_name: Last name
+        password: Password
+        updated_at: Updated at
+    models:
+      user:
+        one: User
+        other: Users
+  enums:
+    user:
+      gender:
+        female: Female
+        male: Male

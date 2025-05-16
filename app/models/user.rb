@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  EDITABLE_ATTRIBUTES = [:first_name, :last_name, :email].freeze
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -1,0 +1,16 @@
+<%= turbo_frame_tag params[:attribute] do %>
+    <%= form_with(model: user, url: [:profile, attribute: params[:attribute]], method: :patch) do |form| %>
+        <% if user.errors.any? %>
+            <div style="color: red">
+                <ul>
+                    <% user.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <%= form.text_field params[:attribute], autofocus: true, class: "border rounded-xs text-sm/6 text-gray-700" %>
+        <%= form.submit "Soumettre", class: "text-sm/6 text-gray-700" %>
+        <%= link_to "Annuler", profile_path, class: "text-sm/6 text-gray-700" %>
+    <% end %>
+<% end %>

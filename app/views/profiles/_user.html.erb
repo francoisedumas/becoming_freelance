@@ -1,0 +1,5 @@
+<div id="<%= dom_id user %>">
+    <% User::EDITABLE_ATTRIBUTES.each do |attribute| %>
+        <%= render "editable_attribute", user: user, attribute: attribute %>
+    <% end %>
+</div>
